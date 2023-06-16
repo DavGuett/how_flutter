@@ -17,7 +17,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
       ),
-      home: EmployeeRegistration(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Home(),
+        'registrarFuncionario': (context) => EmployeeRegistration(),
+      },
     );
   }
 }

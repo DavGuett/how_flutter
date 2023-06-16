@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:how_flutter/views/home.dart';
+import 'package:how_flutter/widgets/drawer_options.dart';
 
 class EmployeeRegistration extends StatefulWidget {
   const EmployeeRegistration({super.key});
@@ -15,9 +16,9 @@ class _EmployeeRegistrationState extends State<EmployeeRegistration> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerOpcoes(),
+      drawer: DrawerOptions(),
       appBar: AppBar(
-        title: Text("Cadastro"),
+        title: const Text("Cadastro"),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -26,36 +27,36 @@ class _EmployeeRegistrationState extends State<EmployeeRegistration> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
-              Text("Cadastro de Funcionario", style: TextStyle(fontSize: 40)),
-              SizedBox(
+              const Text("Cadastro de Funcionario", style: TextStyle(fontSize: 40)),
+              const SizedBox(
                 height:50,
               ),
               TextField(
                 onChanged: (text) {
                   funcionarioNome = text;
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Nome",
                   border: OutlineInputBorder()
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               TextField(
                 onChanged: (text){
                   funcionarioEmail = text;
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "E-mail",
                     border: OutlineInputBorder()
                 ),
                 keyboardType: TextInputType.emailAddress,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               ElevatedButton(
@@ -63,7 +64,7 @@ class _EmployeeRegistrationState extends State<EmployeeRegistration> {
                     print(funcionarioNome);
                     print(funcionarioEmail);
                   },
-                  child: Text("SALVAR"))
+                  child: const Text("SALVAR"))
             ],
           ),
         ),
