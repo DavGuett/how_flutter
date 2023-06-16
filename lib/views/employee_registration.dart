@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:how_flutter/views/home.dart';
 import 'package:how_flutter/widgets/drawer_options.dart';
 
 class EmployeeRegistration extends StatefulWidget {
@@ -61,10 +60,12 @@ class _EmployeeRegistrationState extends State<EmployeeRegistration> {
               ),
               ElevatedButton(
                   onPressed: () {
-                    print(funcionarioNome);
-                    print(funcionarioEmail);
+                    final confirmaCadastro = SnackBar(
+                        content: Text("Funcionario cadastro"));
+                    ScaffoldMessenger.of(context).showSnackBar(confirmaCadastro);
                   },
                   child: const Text("SALVAR"))
+
             ],
           ),
         ),
