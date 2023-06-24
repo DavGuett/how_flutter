@@ -24,12 +24,6 @@ class DrawerOptions extends StatelessWidget {
             },
           ),
           ListTile(
-            title: Text("Setores"),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
             title: Text("Clientes"),
             onTap: (){
               Navigator.of(context).pushReplacementNamed('registrarCliente');
