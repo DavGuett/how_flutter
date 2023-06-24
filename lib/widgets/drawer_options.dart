@@ -32,7 +32,7 @@ class DrawerOptions extends StatelessWidget {
           ListTile(
             title: Text("Clientes"),
             onTap: (){
-              Navigator.pop(context);
+              Navigator.of(context).pushReplacementNamed('registrarCliente');
             },
           )
         ],

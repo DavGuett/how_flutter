@@ -61,7 +61,7 @@ class _EmployeeRegistrationState extends State<EmployeeRegistration> {
               ElevatedButton(
                   onPressed: () {
                     final confirmaCadastro = SnackBar(
-                        content: Text("Funcionario cadastro"));
+                        content: Text("Funcionario cadastrado"));
                     ScaffoldMessenger.of(context).showSnackBar(confirmaCadastro);
                   },
                   child: const Text("SALVAR"))

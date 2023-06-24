@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:how_flutter/views/client_registration.dart';
 import 'package:how_flutter/views/employee_registration.dart';
 import 'package:how_flutter/views/home.dart';
 
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => Home(),
         'registrarFuncionario': (context) => EmployeeRegistration(),
+        'registrarCliente': (context) => ClientRegistration(),
       },
     );
   }
