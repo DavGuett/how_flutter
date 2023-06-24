@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
       ),
+      // Criação das rotas direto no arquivo de inicialização do programa
       initialRoute: '/',
       routes: {
         '/': (context) => Home(),

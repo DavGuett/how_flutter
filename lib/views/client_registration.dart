@@ -59,6 +59,18 @@ class _ClientRegistrationState extends State<ClientRegistration> {
             const SizedBox(
               height: 20,
             ),
+            TextField(
+              onChanged: (text){
+                clienteLocal = text;
+              },
+              decoration: const InputDecoration(
+                  labelText: "Local",
+                  border: OutlineInputBorder()
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             ElevatedButton(
                 onPressed: () {
                   final confirmaCadastro = SnackBar(

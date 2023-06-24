@@ -9,9 +9,11 @@ class EmployeeRegistration extends StatefulWidget {
 }
 
 class _EmployeeRegistrationState extends State<EmployeeRegistration> {
+  // Strings para nome e email que são instanciadas vazias
   String funcionarioNome = "";
   String funcionarioEmail = "";
 
+  // Foram utilizados vários widgets diferentes para criar a aparência desejada do cadastro, com SizedBox que agem como margem
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,10 +21,12 @@ class _EmployeeRegistrationState extends State<EmployeeRegistration> {
       appBar: AppBar(
         title: const Text("Cadastro"),
       ),
+      // Widget SingleChildScrollView serve para que seja possível rolar para baixo ao clicar num dos campos de texto, já que o teclado fica em cima deles
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
+            //Alinhamento da coluna no centro
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -34,6 +38,7 @@ class _EmployeeRegistrationState extends State<EmployeeRegistration> {
                 height:50,
               ),
               TextField(
+                // Essa função recebe como paramêtro o texto digitado e atualiza a variável de nome com o conteúdo assim que o campo muda
                 onChanged: (text) {
                   funcionarioNome = text;
                 },
@@ -46,6 +51,7 @@ class _EmployeeRegistrationState extends State<EmployeeRegistration> {
                 height: 15,
               ),
               TextField(
+                // Essa função recebe como paramêtro o texto digitado e atualiza a variável de email com o conteúdo assim que o campo muda
                 onChanged: (text){
                   funcionarioEmail = text;
                 },
@@ -53,12 +59,14 @@ class _EmployeeRegistrationState extends State<EmployeeRegistration> {
                   labelText: "E-mail",
                     border: OutlineInputBorder()
                 ),
+                // Define o tipo de teclado que aparecerá
                 keyboardType: TextInputType.emailAddress,
               ),
               const SizedBox(
                 height: 20,
               ),
               ElevatedButton(
+                // Botão que ao ser pressionado, cria uma snackbar confirmando o cadastro do funcionário e a exibe na parte de baixo da tela
                   onPressed: () {
                     final confirmaCadastro = SnackBar(
                         content: Text("Funcionario cadastrado"));
