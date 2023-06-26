@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:how_flutter/widgets/drawer_options.dart';
 
+import '../main.dart';
+
 class EmployeeRegistration extends StatefulWidget {
   const EmployeeRegistration({super.key});
 
@@ -67,10 +69,12 @@ class _EmployeeRegistrationState extends State<EmployeeRegistration> {
               ),
               ElevatedButton(
                 // Botão que ao ser pressionado, cria uma snackbar confirmando o cadastro do funcionário e a exibe na parte de baixo da tela
-                  onPressed: () {
+                  onPressed: () async {
                     final confirmaCadastro = SnackBar(
                         content: Text("Funcionario cadastrado"));
                     ScaffoldMessenger.of(context).showSnackBar(confirmaCadastro);
+                    await supabase.from("funcionario").insert({'nome': funcionarioNome, 'email': funcionarioEmail});
+
                   },
                   child: const Text("SALVAR"))
 
