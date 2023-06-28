@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:how_flutter/main.dart';
 import 'package:how_flutter/models/funcionario.dart';
+import 'package:how_flutter/views/edit_employee.dart';
 import 'package:how_flutter/widgets/drawer_options.dart';
 
 class Home extends StatelessWidget {
@@ -45,7 +46,12 @@ class Home extends StatelessWidget {
                       child: Row(
                         children: [
                           IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                // Navigator.of(context).pushNamed('editarFuncionario');
+                                Navigator.push(context,
+                                    MaterialPageRoute(
+                                        builder: (context) => EmployeeEditing(funcionario: funcionario)));
+                              },
                               color: Colors.amberAccent,
                               icon: Icon(Icons.edit)),
                           IconButton(
