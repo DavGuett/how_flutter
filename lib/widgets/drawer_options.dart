@@ -20,15 +20,15 @@ class DrawerOptions extends StatelessWidget {
             },
           ),
           ListTile(
-            title: Text("Funcionarios"),
+            title: Text("Funcionários"),
             onTap: (){
-              Navigator.of(context).pushReplacementNamed('registrarFuncionario');
+              Navigator.of(context).pushReplacementNamed('listarFuncionario');
             },
           ),
           ListTile(
             title: Text("Clientes"),
             onTap: (){
-              Navigator.of(context).pushReplacementNamed('registrarCliente');
+              Navigator.of(context).pushReplacementNamed('listarCliente');
             },
           )
         ],

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:how_flutter/views/client_list.dart';
 import 'package:how_flutter/views/client_registration.dart';
 import 'package:how_flutter/views/edit_employee.dart';
+import 'package:how_flutter/views/employee_list.dart';
 import 'package:how_flutter/views/employee_registration.dart';
 import 'package:how_flutter/views/home.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -30,6 +32,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => Home(),
+        'listarFuncionario': (context) => EmployeeList(),
+        'listarCliente': (context) => ClientList(),
         'registrarFuncionario': (context) => EmployeeRegistration(),
         'registrarCliente': (context) => ClientRegistration(),
       },

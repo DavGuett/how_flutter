@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../main.dart';
 import '../widgets/drawer_options.dart';
 
 class ClientRegistration extends StatefulWidget {
@@ -72,10 +73,11 @@ class _ClientRegistrationState extends State<ClientRegistration> {
               height: 20,
             ),
             ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   final confirmaCadastro = SnackBar(
                       content: Text("Cliente cadastrado"));
                   ScaffoldMessenger.of(context).showSnackBar(confirmaCadastro);
+                  await supabase.from("cliente").insert({'nome': clienteNome, 'email': clienteEmail, 'local': clienteLocal});
                 },
                 child: const Text("SALVAR"))
 
