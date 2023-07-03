@@ -42,6 +42,7 @@ class EmployeeEditing extends StatelessWidget {
                 controller: TextEditingController(text: funcionario.Nome),
                 onChanged: (text) {
                   funcionarioNome = text;
+                  funcionario.Nome = funcionarioNome;
                 },
                 decoration: const InputDecoration(
                     labelText: "Nome",
@@ -55,6 +56,7 @@ class EmployeeEditing extends StatelessWidget {
                 controller: TextEditingController(text: funcionario.Email),
                 onChanged: (text){
                   funcionarioEmail = text;
+                  funcionario.Email = funcionarioEmail;
                 },
                 decoration: const InputDecoration(
                     labelText: "E-mail",
@@ -72,6 +74,7 @@ class EmployeeEditing extends StatelessWidget {
                     final confirmaCadastro = SnackBar(
                         content: Text("Funcionario editado"));
                     ScaffoldMessenger.of(context).showSnackBar(confirmaCadastro);
+                    await supabase.from("funcionario").update({'nome': funcionario.Nome, 'email': funcionario.Email}).match({'id': funcionario.Id});
                     //await supabase.from("funcionario").insert({'nome': funcionarioNome, 'email': funcionarioEmail});
 
                   },
