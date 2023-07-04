@@ -20,10 +20,36 @@ Future<void> main() async {
 
   testWidgets('EmployeeEditing recebe os parametros certos', (tester) async {
     // Test code goes here
-    await tester.pumpWidget(MaterialApp(home:Home()));
-    final homeIconeFinder = find.byIcon(Icons.home);
-    final Icon homeIcone = tester.widget(homeIconeFinder);
-    expect(homeIcone, findsOneWidget);
+    final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
+    BuildContext savedContext;
+    await tester.pumpWidget(
+      new MaterialApp(
+        home: new Builder(
+          builder: (BuildContext context) {
+            savedContext = context;
+            return new Scaffold(
+              key: scaffoldKey,
+              drawer: DrawerOptions(),
+              appBar: AppBar(
+                title: Text("Início"),
+              ),
+              body: Center(
+                child:Column(
+                  children: [
+                    Text("Hands on Work", style: TextStyle(fontSize: 30),),
+                    Text("Para começar, utilize o drawer/menu hamburguer para listar os funcionários ou clientes")
+                  ],
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+    await tester.pump();
+    final Finder appBarTituloFinder = find.widgetWithText(Text, "Início");
+    expect(appBarTituloFinder, findsOneWidget);
   });
+
 }
 
