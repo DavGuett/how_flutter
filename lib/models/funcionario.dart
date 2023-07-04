@@ -20,4 +20,9 @@ class Funcionario {
   String get Email => _Email;
 
   String get Nome => _Nome;
+
+  @override
+  String toString() {
+    return 'Sou o funcionário com Id:$_Id, Nome: $_Nome e Email: $_Email';
+  }
 }
