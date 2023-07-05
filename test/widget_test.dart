@@ -47,7 +47,7 @@ Future<void> main() async {
       ),
     );
     await tester.pump();
-    final Finder appBarTituloFinder = find.byWidget(AppBar());
+    final Finder appBarTituloFinder = find.widgetWithText(Text, "Início");
     expect(appBarTituloFinder, findsOneWidget);
   });
 
