@@ -7,36 +7,30 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:how_flutter/main.dart';
-import 'package:how_flutter/models/funcionario.dart';
-import 'package:how_flutter/views/edit_employee.dart';
-import 'package:how_flutter/views/employee_list.dart';
-import 'package:how_flutter/views/home.dart';
 import 'package:how_flutter/widgets/drawer_options.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+
 
 Future<void> main() async {
 
-  testWidgets('EmployeeEditing recebe os parametros certos', (tester) async {
+  testWidgets('Home tem título na AppBar', (tester) async {
     // Test code goes here
     final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
-    BuildContext savedContext;
     await tester.pumpWidget(
       new MaterialApp(
         home: new Builder(
           builder: (BuildContext context) {
-            savedContext = context;
             return new Scaffold(
               key: scaffoldKey,
               drawer: DrawerOptions(),
               appBar: AppBar(
                 title: Text("Início"),
+                key: Key('chave-topo-tela'),
               ),
               body: Center(
                 child:Column(
+                  key: Key('coluna-principal'),
                   children: [
-                    Text("Hands on Work", style: TextStyle(fontSize: 30),),
+                    Text("Hands on Work", style: TextStyle(fontSize: 30), key: Key('titulo-principal')),
                     Text("Para começar, utilize o drawer/menu hamburguer para listar os funcionários ou clientes")
                   ],
                 ),
@@ -47,9 +41,39 @@ Future<void> main() async {
       ),
     );
     await tester.pump();
-    final Finder appBarTituloFinder = find.widgetWithText(Text, "Início");
+    final Finder appBarTituloFinder = find.byKey(Key('chave-topo-tela'));
     expect(appBarTituloFinder, findsOneWidget);
   });
-
+  testWidgets("Home tem o titulo do trabalho ", (widgetTester) async {
+    final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
+    await widgetTester.pumpWidget(
+      new MaterialApp(
+        home: new Builder(
+          builder: (BuildContext context) {
+            return new Scaffold(
+              key: scaffoldKey,
+              drawer: DrawerOptions(),
+              appBar: AppBar(
+                title: Text("Início"),
+                key: Key('chave-topo-tela'),
+              ),
+              body: Center(
+                child:Column(
+                  key: Key('coluna-principal'),
+                  children: [
+                    Text("Hands on Work", style: TextStyle(fontSize: 30), key: Key('titulo-principal')),
+                    Text("Para começar, utilize o drawer/menu hamburguer para listar os funcionários ou clientes")
+                  ],
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+    await widgetTester.pump();
+    final Finder tituloFinder = find.descendant(of: find.byKey(Key('coluna-principal')), matching: find.byKey(Key('titulo-principal')));
+    expect(tituloFinder, findsNothing);
+  });
 }
 

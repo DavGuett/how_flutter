@@ -23,6 +23,6 @@ class Funcionario {
 
   @override
   String toString() {
-    return 'Sou o funcionário com Id:$_Id, Nome: $_Nome e Email: $_Email';
+    return 'Sou o funcionário com Id: $_Id, Nome: $_Nome e Email: $_Email';
   }
 }
