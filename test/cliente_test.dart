@@ -11,7 +11,7 @@ void main() {
   cliente.Email = "david@mail.com";
   cliente.Local = "Itajaí - SC";
   test("description", () =>
-      expect(cliente.Id, int)
+      expect(cliente.Id, idRecebido)
   );
 
 

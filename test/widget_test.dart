@@ -73,7 +73,7 @@ Future<void> main() async {
     );
     await widgetTester.pump();
     final Finder tituloFinder = find.descendant(of: find.byKey(Key('coluna-principal')), matching: find.byKey(Key('titulo-principal')));
-    expect(tituloFinder, findsNothing);
+    expect(tituloFinder, findsOneWidget);
   });
 }
 

@@ -27,4 +27,9 @@ class Cliente {
   String get Email => _Email;
 
   String get Nome => _Nome;
+
+  @override
+  String toString() {
+    return 'Sou o cliente com id: $_Id, nome: $_Nome, e-mail: $_Email, e local de atuação: $_Local}';
+  }
 }
